@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkgq57af5lxmy"]
+[gd_scene load_steps=9 format=3 uid="uid://dkgq57af5lxmy"]
 
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_5a4cf"]
 [ext_resource type="Texture2D" uid="uid://bf62g7en7m1pp" path="res://Assests/craftpix-net-856554-free-3-cyberpunk-characters-pixel-art/2 Punk/Punk_idle.png" id="1_vtlva"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27g5c"]
@@ -42,13 +43,14 @@ animations = [{
 size = Vector2(9, 31)
 
 [node name="player" type="CharacterBody2D"]
+script = ExtResource("1_5a4cf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5, 0)
 sprite_frames = SubResource("SpriteFrames_iw7wr")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0373472
+frame_progress = 0.825436
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-16.5, 7.5)
