@@ -37,3 +37,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	update_animation(direction)
+
+func update_animation(direction):
+	if direction > 0:
+		$AnimatedSprite2D.flip_h = false;
+		$AnimatedSprite2D.play("walking")
+	elif direction < 0:
+		$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play("walking")
+	else:
+		$AnimatedSprite2D.play("idle")
