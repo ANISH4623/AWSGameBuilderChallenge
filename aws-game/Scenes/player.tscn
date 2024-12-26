@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkgq57af5lxmy"]
+
+[ext_resource type="Texture2D" uid="uid://bf62g7en7m1pp" path="res://Assests/craftpix-net-856554-free-3-cyberpunk-characters-pixel-art/2 Punk/Punk_idle.png" id="1_vtlva"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27g5c"]
+atlas = ExtResource("1_vtlva")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5co40"]
+atlas = ExtResource("1_vtlva")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s03ce"]
+atlas = ExtResource("1_vtlva")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsl4h"]
+atlas = ExtResource("1_vtlva")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iw7wr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27g5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5co40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s03ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsl4h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqtos"]
+size = Vector2(9, 31)
+
+[node name="player" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5, 0)
+sprite_frames = SubResource("SpriteFrames_iw7wr")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0373472
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16.5, 7.5)
+shape = SubResource("RectangleShape2D_rqtos")
