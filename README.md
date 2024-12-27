@@ -32,7 +32,7 @@ Negative Effects:
 -Temporary restriction on gravity inversion.
 -Reduced jump height or speed.
 
-Level Design:
+## Level Design:
 
 Progression:
 Levels become harder as you advance, introducing new challenges like moving platforms, timed obstacles, and tricky puzzles.
