@@ -9,7 +9,6 @@ const MAX_CHARGE_TIME = 1 #Time in seconds to reach maximum jump velocity
 var jump_hold_time = 0.0
 var is_jumping = false;
 
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -20,6 +19,7 @@ func _physics_process(delta: float) -> void:
 		is_jumping = true;
 		jump_hold_time += delta;
 		jump_hold_time = clamp(jump_hold_time,0,MAX_CHARGE_TIME)
+		$AnimatedSprite2D.play("jump_charge")
 	elif is_jumping:
 		#Calculate jump velocity when key is released
 		is_jumping = false;
@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 		var jump_dist = lerp(MIN_JUMP_VELOCITY,MAX_JUMP_VELOCITY,charge_ratio)
 		velocity.y = jump_dist
 		jump_hold_time = 0.0
+		$AnimatedSprite2D.play("jump")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -39,8 +40,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_animation(direction)
 
-func update_animation(direction):
-	if direction > 0:
+func update_animation(direction: float) -> void:
+	#If we are in Air 
+	if !is_on_floor():
+		if velocity.y <0:
+			#going up
+			$AnimatedSprite2D.play("jump")
+		else:
+			#falling
+			$AnimatedSprite2D.play("idle")
+	elif direction > 0:
 		$AnimatedSprite2D.flip_h = false;
 		$AnimatedSprite2D.play("walking")
 	elif direction < 0:
@@ -48,3 +57,6 @@ func update_animation(direction):
 		$AnimatedSprite2D.play("walking")
 	else:
 		$AnimatedSprite2D.play("idle")
+	# Update sprite direction
+	if direction != 0:
+		$AnimatedSprite2D.flip_h = direction < 0
