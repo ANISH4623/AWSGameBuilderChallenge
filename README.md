@@ -116,6 +116,9 @@ together. Every skill you’ve learned is tested here. The gravity flips faster,
 collapse, and enemies block your way. The voice reveals the final truth: "The machine 
 needs someone to stay and stabilize it. Will you make that choice?"
 
+
+I guess this is too far fetched seeing that we only have 14 days left?!
+
 You must decide:
 
 Sacrifice yourself to restore balance, leaving the world whole but trapping yourself 
